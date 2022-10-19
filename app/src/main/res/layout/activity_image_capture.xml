@@ -1,0 +1,76 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/camera_iamge"
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/avater"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageButton
+        android:id="@+id/capture_btn"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_import"
+        app:layout_constraintBottom_toTopOf="@+id/relativeLayout"
+        app:layout_constraintEnd_toStartOf="@+id/detect_txt"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/camera_iamge" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Capture Image"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/capture_btn"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="@+id/capture_btn"
+        app:layout_constraintTop_toBottomOf="@+id/capture_btn" />
+
+
+    <ImageButton
+        android:id="@+id/detect_txt"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:background="#00FFFFFF"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_detect"
+        app:layout_constraintBottom_toBottomOf="@+id/capture_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/capture_btn"
+        app:layout_constraintTop_toTopOf="@+id/capture_btn" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detect Text"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/detect_txt"
+        app:layout_constraintStart_toStartOf="@+id/detect_txt"
+        app:layout_constraintTop_toBottomOf="@+id/detect_txt" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="411dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

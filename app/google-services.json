@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1024612492639",
+    "project_id": "translator-app-f929f",
+    "storage_bucket": "translator-app-f929f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1024612492639:android:1a138da0e4df6f83d382ea",
+        "android_client_info": {
+          "package_name": "com.englishhinditranslator.hinditoenglishtranslator"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1024612492639-8qto8civqvqf9h63igp2r0v5df1bo9bk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5uiULFCFJszw6Pj_zmORt-BEKv4cT_RQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1024612492639-8qto8civqvqf9h63igp2r0v5df1bo9bk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
