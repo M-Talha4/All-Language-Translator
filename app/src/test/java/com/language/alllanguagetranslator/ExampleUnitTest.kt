@@ -1,4 +1,4 @@
-package com.englishhinditranslator.hinditoenglishtranslator
+package com.language.alllanguagetranslator
 
 import org.junit.Test
 

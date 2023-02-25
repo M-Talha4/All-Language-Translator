@@ -1,4 +1,4 @@
-package com.englishhinditranslator.hinditoenglishtranslator
+package com.language.alllanguagetranslator
 
 import android.Manifest
 import android.app.AlertDialog
@@ -14,15 +14,25 @@ import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.preference.PreferenceManager.*
+import android.view.Gravity
+import android.view.ViewGroup
+import android.widget.FrameLayout
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.*
-import com.englishhinditranslator.hinditoenglishtranslator.Camera_Translation.Image_Capture
-import com.englishhinditranslator.hinditoenglishtranslator.Gallery_Input.Gallery_Activity
-import com.englishhinditranslator.hinditoenglishtranslator.Setting.Setting
-import com.englishhinditranslator.hinditoenglishtranslator.VoiceInput.Voice_Translation
+import com.applovin.mediation.MaxAd
+import com.applovin.mediation.MaxAdViewAdListener
+import com.applovin.mediation.MaxError
+import com.applovin.mediation.ads.MaxAdView
+import com.applovin.mediation.ads.MaxInterstitialAd
+import com.applovin.sdk.AppLovinSdk
+import com.applovin.sdk.AppLovinSdkConfiguration
+import com.language.alllanguagetranslator.Camera_Translation.Image_Capture
+import com.language.alllanguagetranslator.Gallery_Input.Gallery_Activity
+import com.language.alllanguagetranslator.Setting.Setting
+import com.language.alllanguagetranslator.VoiceInput.Voice_Translation
 import com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions
 import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage.*
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslateLanguage.*
@@ -30,8 +40,9 @@ import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslator
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslatorOptions
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslatorOptions.*
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.concurrent.TimeUnit
 
-class Main_Activity : AppCompatActivity() {
+class Main_Activity : AppCompatActivity(), MaxAdViewAdListener {
     lateinit var i :Intent
     private var pressedTime: Long = 0
     lateinit var englishTranslator: FirebaseTranslator
@@ -39,8 +50,28 @@ class Main_Activity : AppCompatActivity() {
     lateinit var options: FirebaseTranslatorOptions
     private  val CAMERA_PERMISSION_CODE = 100
     private  val STORAGE_PERMISSION_CODE = 101
+
+    private var adView: MaxAdView? = null
+    private lateinit var interstitialAd: MaxInterstitialAd
+    private var retryAttempt = 0.0
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        interstitialAd = MaxInterstitialAd( "8b943fceabb94d1b", this )
+        interstitialAd.setListener(this)
+
+        AppLovinSdk.getInstance( this ).setMediationProvider( "max" )
+        AppLovinSdk.getInstance( this ).initializeSdk({ configuration: AppLovinSdkConfiguration ->
+            // AppLovin SDK is initialized, start loading ads
+            // call function
+
+            createBannerAd1()
+            createInterstitialAd()
+
+        })
+
         setContentView(R.layout.activity_main)
         supportActionBar?.setBackgroundDrawable(ColorDrawable(Color.parseColor("#BCCEF8")))
 
@@ -128,7 +159,7 @@ class Main_Activity : AppCompatActivity() {
 
         more_btn.setOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW,
-                Uri.parse("https://play.google.com/store/apps/developer?id=Microtech+IT+Solutions"))) }
+                Uri.parse("https://play.google.com/store/apps/dev?id=6625738419290814495&hl=en&gl=US"))) }
 
 
 
@@ -141,7 +172,16 @@ class Main_Activity : AppCompatActivity() {
     private fun StartActivity(Activty: Intent) {
 
         //  ad here
-        startActivity(Activty)
+        if  ( interstitialAd.isReady )
+        {
+            interstitialAd.showAd()
+            startActivity(Activty)
+
+
+        }else{
+            startActivity(Activty)
+
+        }
 
     }
 
@@ -233,4 +273,79 @@ class Main_Activity : AppCompatActivity() {
             }
         }
     }
+
+    private fun createInterstitialAd() {
+        interstitialAd.loadAd()
+    }
+
+
+
+    //for banner
+
+
+
+    private fun createBannerAd1() {
+        adView = MaxAdView("2d04fc65d6bc2382", this)
+        adView?.setListener(this)
+
+        // Stretch to the width of the screen for banners to be fully functional
+        val width = ViewGroup.LayoutParams.MATCH_PARENT
+
+        // Banner height on phones and tablets is 50 and 90, respectively
+        val heightPx = resources.getDimensionPixelSize(R.dimen.banner_height)
+
+        adView?.layoutParams = FrameLayout.LayoutParams(width, heightPx, Gravity.BOTTOM)
+
+        // Set background or background color for banners to be fully functional
+        //  adView?.setBackgroundColor(...)
+
+        val rootView = findViewById<ViewGroup>(android.R.id.content)
+        rootView.addView(adView)
+
+        // Load the ad
+        adView?.loadAd()
+
+    }
+
+
+
+
+
+
+    override fun onAdLoaded(ad: MaxAd?) {
+        retryAttempt = 0.0
+    }
+
+    override fun onAdDisplayed(ad: MaxAd?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onAdHidden(ad: MaxAd?) {
+        interstitialAd.loadAd()
+    }
+
+    override fun onAdClicked(ad: MaxAd?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onAdLoadFailed(adUnitId: String?, error: MaxError?) {
+        retryAttempt++
+        val delayMillis = TimeUnit.SECONDS.toMillis( Math.pow( 2.0, Math.min( 6.0, retryAttempt ) ).toLong() )
+
+        Handler().postDelayed( { interstitialAd.loadAd() }, delayMillis )
+
+    }
+
+    override fun onAdDisplayFailed(ad: MaxAd?, error: MaxError?) {
+        interstitialAd.loadAd()
+    }
+
+    override fun onAdExpanded(ad: MaxAd?) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onAdCollapsed(ad: MaxAd?) {
+        TODO("Not yet implemented")
+    }
+
 }

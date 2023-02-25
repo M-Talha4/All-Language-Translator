@@ -1,4 +1,4 @@
-package com.englishhinditranslator.hinditoenglishtranslator.Setting
+package com.language.alllanguagetranslator.Setting
 
 import android.content.Intent
 import android.graphics.Color
@@ -6,7 +6,7 @@ import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.englishhinditranslator.hinditoenglishtranslator.R
+import com.language.alllanguagetranslator.R
 import kotlinx.android.synthetic.main.activity_setting.*
 
 class Setting : AppCompatActivity() {

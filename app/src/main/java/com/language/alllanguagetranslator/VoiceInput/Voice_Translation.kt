@@ -1,4 +1,4 @@
-package com.englishhinditranslator.hinditoenglishtranslator.VoiceInput
+package com.language.alllanguagetranslator.VoiceInput
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -16,15 +16,13 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.englishhinditranslator.hinditoenglishtranslator.R
+import com.language.alllanguagetranslator.R
 import com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions
 import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage.*
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslateLanguage.*
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslator
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslatorOptions
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslatorOptions.*
-import kotlinx.android.synthetic.main.activity_detect_gallery_text.*
-import kotlinx.android.synthetic.main.activity_text_translation.*
 import kotlinx.android.synthetic.main.activity_voice_translation.*
 import java.util.*
 
@@ -54,10 +52,10 @@ class Voice_Translation : AppCompatActivity() {
         val t_Araay = resources.getStringArray(R.array.T_languages)
 
         s_voice_lang = "en-EN"
-        t_voice_lang = "ur-UR"
+        t_voice_lang = "fr-FR"
 
         s_lang = EN
-        t_lang = HI
+        t_lang = FR
 
 
         T_t_S = TextToSpeech(this) { status ->
@@ -197,7 +195,7 @@ class Voice_Translation : AppCompatActivity() {
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
 
                     when (position) {
-                        0 -> { t_lang = HI
+                        0 -> { t_lang = FR
                             t_position =0}
                         1 -> { t_lang = AF
                             t_position =1}
@@ -302,6 +300,7 @@ class Voice_Translation : AppCompatActivity() {
                         .setTargetLanguage(t_lang!!)
                         .build()
                     englishTranslator = getInstance().getTranslator(options)
+                    downloadModal(input_box.text.toString())
                 }
                 override fun onNothingSelected(parent: AdapterView<*>?) {
                     TODO("Not yet implemented")
@@ -315,7 +314,6 @@ class Voice_Translation : AppCompatActivity() {
 
         // On Source Mic click
         v_source_mic.setOnClickListener {
-
 
             when(s_position){
                 0->{ s_voice_lang ="en-EN"}

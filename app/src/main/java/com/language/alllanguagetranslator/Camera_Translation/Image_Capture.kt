@@ -1,7 +1,5 @@
-package com.englishhinditranslator.hinditoenglishtranslator.Camera_Translation
+package com.language.alllanguagetranslator.Camera_Translation
 
-import android.app.ActionBar
-import android.app.Activity
 import android.content.ContentValues
 import android.content.Context
 import android.content.Intent
@@ -12,7 +10,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.englishhinditranslator.hinditoenglishtranslator.R.*
+import com.language.alllanguagetranslator.R.*
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions

@@ -1,4 +1,4 @@
-package com.englishhinditranslator.hinditoenglishtranslator.Camera_Translation
+package com.language.alllanguagetranslator.Camera_Translation
 
 import android.content.ClipData
 import android.content.ClipboardManager
@@ -17,14 +17,13 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import com.englishhinditranslator.hinditoenglishtranslator.R
+import com.language.alllanguagetranslator.R
 import com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions
 import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage
-import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslateLanguage
+import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslateLanguage.*
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslator
 import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslatorOptions
 import kotlinx.android.synthetic.main.activity_camera_text.*
-import kotlinx.android.synthetic.main.activity_detect_gallery_text.*
 import java.util.*
 
 class Camera_Text : AppCompatActivity() {
@@ -46,8 +45,8 @@ class Camera_Text : AppCompatActivity() {
         rec_text = intent.getStringExtra("text").toString()
         c_input.setText(rec_text)
 
-        s_lang = FirebaseTranslateLanguage.EN
-        t_lang = FirebaseTranslateLanguage.HI
+        s_lang = EN
+        t_lang = HI
 
         T_t_S = TextToSpeech(this) { status ->
             if (status != TextToSpeech.ERROR) {
@@ -63,105 +62,105 @@ class Camera_Text : AppCompatActivity() {
 
 
                     when (position) {
-                        0 -> { t_lang = FirebaseTranslateLanguage.HI
+                        0 -> { t_lang = HI
                         }
-                        1 -> { t_lang = FirebaseTranslateLanguage.AF
+                        1 -> { t_lang = AF
                         }
-                        2 -> { t_lang = FirebaseTranslateLanguage.AR
+                        2 -> { t_lang = AR
                         }
-                        3 -> { t_lang = FirebaseTranslateLanguage.BG
+                        3 -> { t_lang = BG
                         }
-                        4 -> { t_lang = FirebaseTranslateLanguage.BN
+                        4 -> { t_lang = BN
                         }
-                        5 -> { t_lang = FirebaseTranslateLanguage.CA
+                        5 -> { t_lang = CA
                         }
-                        6 -> { t_lang = FirebaseTranslateLanguage.CS
+                        6 -> { t_lang = CS
                         }
-                        7 -> { t_lang = FirebaseTranslateLanguage.DA
+                        7 -> { t_lang = DA
                         }
-                        8 -> { t_lang = FirebaseTranslateLanguage.DE
+                        8 -> { t_lang = DE
                         }
-                        9 -> { t_lang = FirebaseTranslateLanguage.EL
+                        9 -> { t_lang = EL
                         }
-                        10 -> { t_lang = FirebaseTranslateLanguage.EN
+                        10 -> { t_lang = EN
                         }
-                        11 -> { t_lang = FirebaseTranslateLanguage.ES
+                        11 -> { t_lang = ES
                         }
-                        12 -> { t_lang = FirebaseTranslateLanguage.FA
+                        12 -> { t_lang = FA
                         }
-                        13 -> { t_lang = FirebaseTranslateLanguage.FI
+                        13 -> { t_lang = FI
                         }
-                        14 -> { t_lang = FirebaseTranslateLanguage.FR
+                        14 -> { t_lang = FR
                         }
-                        15 -> { t_lang = FirebaseTranslateLanguage.GL
+                        15 -> { t_lang = GL
                         }
-                        16 -> { t_lang = FirebaseTranslateLanguage.GU
+                        16 -> { t_lang = GU
                         }
-                        17 -> { t_lang = FirebaseTranslateLanguage.HE
+                        17 -> { t_lang = HE
                         }
-                        18 -> { t_lang = FirebaseTranslateLanguage.HI
+                        18 -> { t_lang = HI
                         }
-                        19 -> { t_lang = FirebaseTranslateLanguage.HR
+                        19 -> { t_lang = HR
                         }
-                        20 -> { t_lang = FirebaseTranslateLanguage.HU
+                        20 -> { t_lang = HU
                         }
-                        21 -> { t_lang = FirebaseTranslateLanguage.ID
+                        21 -> { t_lang = ID
                         }
-                        22 -> { t_lang = FirebaseTranslateLanguage.IS
+                        22 -> { t_lang = IS
                         }
-                        23 -> { t_lang = FirebaseTranslateLanguage.IT
+                        23 -> { t_lang = IT
                         }
-                        24 -> { t_lang = FirebaseTranslateLanguage.JA
+                        24 -> { t_lang = JA
                         }
-                        25 -> { t_lang = FirebaseTranslateLanguage.KA
+                        25 -> { t_lang = KA
                         }
-                        26 -> { t_lang = FirebaseTranslateLanguage.KN
+                        26 -> { t_lang = KN
                         }
-                        27 -> { t_lang = FirebaseTranslateLanguage.KO
+                        27 -> { t_lang = KO
                         }
-                        28 -> { t_lang = FirebaseTranslateLanguage.LT
+                        28 -> { t_lang = LT
                         }
-                        29 -> { t_lang = FirebaseTranslateLanguage.LV
+                        29 -> { t_lang = LV
                         }
-                        30 -> { t_lang = FirebaseTranslateLanguage.MR
+                        30 -> { t_lang = MR
                         }
-                        31 -> { t_lang = FirebaseTranslateLanguage.MS
+                        31 -> { t_lang = MS
                         }
-                        32 -> { t_lang = FirebaseTranslateLanguage.NL
+                        32 -> { t_lang = NL
                         }
-                        33 -> { t_lang = FirebaseTranslateLanguage.NO
+                        33 -> { t_lang = NO
                         }
-                        34 -> { t_lang = FirebaseTranslateLanguage.PL
+                        34 -> { t_lang = PL
                         }
-                        35 -> { t_lang = FirebaseTranslateLanguage.PT
+                        35 -> { t_lang = PT
                         }
-                        36 -> { t_lang = FirebaseTranslateLanguage.RO
+                        36 -> { t_lang = RO
                         }
-                        37 -> { t_lang = FirebaseTranslateLanguage.RU
+                        37 -> { t_lang = RU
                         }
-                        38 -> { t_lang = FirebaseTranslateLanguage.SK
+                        38 -> { t_lang = SK
                         }
-                        39 -> { t_lang = FirebaseTranslateLanguage.SL
+                        39 -> { t_lang = SL
                         }
-                        40 -> { t_lang = FirebaseTranslateLanguage.SV
+                        40 -> { t_lang = SV
                         }
-                        41 -> { t_lang = FirebaseTranslateLanguage.SW
+                        41 -> { t_lang = SW
                         }
-                        42 -> { t_lang = FirebaseTranslateLanguage.TA
+                        42 -> { t_lang = TA
                         }
-                        43 -> { t_lang = FirebaseTranslateLanguage.TE
+                        43 -> { t_lang = TE
                         }
-                        44 -> { t_lang = FirebaseTranslateLanguage.TH
+                        44 -> { t_lang = TH
                         }
-                        45 -> { t_lang = FirebaseTranslateLanguage.TR
+                        45 -> { t_lang = TR
                         }
-                        46 -> { t_lang = FirebaseTranslateLanguage.UK
+                        46 -> { t_lang = UK
                         }
-                        47 -> { t_lang = FirebaseTranslateLanguage.UR
+                        47 -> { t_lang = UR
                         }
-                        48 -> { t_lang = FirebaseTranslateLanguage.VI
+                        48 -> { t_lang = VI
                         }
-                        49 -> { t_lang = FirebaseTranslateLanguage.ZH
+                        49 -> { t_lang = ZH
                         }
                     }
                     options = FirebaseTranslatorOptions.Builder()
@@ -195,7 +194,7 @@ class Camera_Text : AppCompatActivity() {
 
 
         cs_speaker_btn.setOnClickListener {
-            if (s_lang == FirebaseTranslateLanguage.EN){
+            if (s_lang == EN){
 
                 if (c_input.text.toString().isEmpty()){
                     Toast.makeText(this,"text no found",Toast.LENGTH_SHORT).show()
@@ -210,7 +209,7 @@ class Camera_Text : AppCompatActivity() {
         }
 
         ct_speaker_btn.setOnClickListener {
-            if (t_lang == FirebaseTranslateLanguage.EN){
+            if (t_lang == EN){
 
                 if (c_output.text.toString().isEmpty()){
                     Toast.makeText(this,"text no found",Toast.LENGTH_SHORT).show()

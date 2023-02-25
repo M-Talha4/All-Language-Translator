@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Program Files/Android/Project/All Language Translator/All Language Translator/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Program Files/Android/Project/All Language Translator/All Language Translator/app/src/main/res/layout/activity_text_translation.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/M.usman/AndroidStudioProjects/HinditoEnglishtranslator/app/src/main/res/drawable-v24/ic_mic.xml" value="0.1635" />
         <entry key="..\:/Users/M.usman/AndroidStudioProjects/HinditoEnglishtranslator/app/src/main/res/drawable-v24/layout_stroke.xml" value="0.173" />
         <entry key="..\:/Users/M.usman/AndroidStudioProjects/HinditoEnglishtranslator/app/src/main/res/drawable/button_background.xml" value="0.173" />
@@ -36,6 +38,8 @@
         <entry key="..\:/Users/M.usman/AndroidStudioProjects/HinditoEnglishtranslator/app/src/main/res/layout/splash_screen.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/M.usman/AndroidStudioProjects/HinditoEnglishtranslator/app/src/main/res/menu/main.xml" value="0.253125" />
         <entry key="..\:/Users/M.usman/AndroidStudioProjects/HinditoEnglishtranslator/app/src/main/res/xml/file_paths.xml" value="0.176" />
+        <entry key="..\:/Users/mu788/AndroidStudioProjects/HinditoEnglishtranslator/app/src/main/res/layout/activity_camera_text.xml" value="0.25" />
+        <entry key="..\:/Users/mu788/AndroidStudioProjects/HinditoEnglishtranslator/app/src/main/res/layout/activity_voice_translation.xml" value="0.25" />
       </map>
     </option>
   </component>

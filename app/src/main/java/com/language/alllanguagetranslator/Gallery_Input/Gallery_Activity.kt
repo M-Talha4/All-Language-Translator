@@ -1,4 +1,4 @@
-package com.englishhinditranslator.hinditoenglishtranslator.Gallery_Input
+package com.language.alllanguagetranslator.Gallery_Input
 
 import android.content.Context
 import android.content.Intent
@@ -9,7 +9,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.englishhinditranslator.hinditoenglishtranslator.R
+import com.language.alllanguagetranslator.R
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
